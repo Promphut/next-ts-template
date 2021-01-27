@@ -1,0 +1,72 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "transform-runtime": {
+          "useESModules": false
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": [
+          "."
+        ],
+        "alias": {
+          "styles": "./styles",
+          "moment": "moment/moment.js"
+        },
+        "cwd": "babelrc"
+      }
+    ],
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
+      }
+    ],
+    [
+      "wrap-in-js",
+      {
+        "extensions": [
+          "css$",
+          "scss$"
+        ]
+      }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd"
+      },
+      "antd"
+    ]
+  ],
+  "env": {
+    "development": {},
+    "production": {},
+    "test": {
+      "plugins": [
+        [
+          "transform-es2015-modules-commonjs"
+        ]
+      ],
+      "presets": [
+        [
+          "next/babel",
+          {
+            "preset-env": {
+              "modules": "commonjs"
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
